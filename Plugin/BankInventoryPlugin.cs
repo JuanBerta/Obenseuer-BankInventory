@@ -1,5 +1,7 @@
 using BepInEx;
 using BepInEx.Configuration;
+using BepInEx.Unity.Mono;
+using BepInEx.Unity.Mono.Configuration;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

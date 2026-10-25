@@ -11,7 +11,7 @@ AIGC:
 
 # Obenseuer-BankInventory
 
-A BepInEx 5 mod for [Obenseuer](https://store.steampowered.com/app/1554640/Obenseuer/) that adds a **bank inventory**: press a key to open a storage UI where you can deposit and take items, with **infinite storage** (base capacity, auto-expanding, multi-page) and **full save support**.
+A BepInEx 6 mod for [Obenseuer](https://store.steampowered.com/app/1554640/Obenseuer/) that adds a **bank inventory**: press a key to open a storage UI where you can deposit and take items, with **infinite storage** (base capacity, auto-expanding, multi-page) and **full save support**.
 
 ## Features
 
@@ -24,7 +24,7 @@ A BepInEx 5 mod for [Obenseuer](https://store.steampowered.com/app/1554640/Obens
 
 ## Requirements
 
-- [BepInEx 5](https://github.com/BepInEx/BepInEx) (x64) installed in the game folder
+- [BepInEx 6](https://github.com/BepInEx/BepInEx) (x64) installed in the game folder (tested with 6.0.0-pre.2)
 - Obenseuer (Windows, x64, .NET Framework 4.7.2 / net472 runtime)
 
 ## Installation
@@ -53,7 +53,7 @@ The config file `BepInEx/config/com.juanberta.obenseuer.bankinventory.cfg` is ge
 
 Output: `bin\Release\Obenseuer-BankInventory.dll`
 
-The project targets **net472 / x64 / LangVersion 7.3** (BepInEx 5 style) and references the game assemblies from `C:\Juegos\Obenseuer\Obenseuer_Data\Managed\` and BepInEx core from `C:\Juegos\Obenseuer\BepInEx\core\`. Adjust the HintPaths if your game is installed elsewhere.
+The project targets **net472 / x64 / LangVersion 7.3** (BepInEx 6 style) and references the game assemblies from `C:\Juegos\Obenseuer\Obenseuer_Data\Managed\` and BepInEx core from `C:\Juegos\Obenseuer\BepInEx\core\` (BepInEx.Core.dll / BepInEx.Unity.Mono.dll). Adjust the HintPaths if your game is installed elsewhere.
 
 ## How it works (design notes)
 

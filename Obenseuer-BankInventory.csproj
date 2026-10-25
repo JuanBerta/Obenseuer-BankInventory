@@ -37,9 +37,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <!-- BepInEx 5 core + Harmony -->
-    <Reference Include="BepInEx">
-      <HintPath>C:\Juegos\Obenseuer\BepInEx\core\BepInEx.dll</HintPath>
+    <!-- BepInEx 6 core + Unity Mono -->
+    <Reference Include="BepInEx.Core">
+      <HintPath>C:\Juegos\Obenseuer\BepInEx\core\BepInEx.Core.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="BepInEx.Unity.Mono">
+      <HintPath>C:\Juegos\Obenseuer\BepInEx\core\BepInEx.Unity.Mono.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <Reference Include="0Harmony">
