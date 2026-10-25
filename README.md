@@ -1,10 +1,21 @@
+﻿---
+AIGC:
+    Label: "1"
+    ContentProducer: 001191440300708461136T1XGW3
+    ProduceID: 89238829fb97168b9c4195c03c152aef_a93f32dbd09111f1a443525400393706
+    ReservedCode1: nYMvb3mpsfup51QatdwQ+60p019HWq2Zy48SrV3RwSC/hvxbPBPGnW/XpylzlhbRTe/oICCl924FV2lZzgCD1lM8C6zotu29JPsRl/8zZqsHEb7GZYJnK5ZnTD2/pxDp8i+DgeF+kK2WJZZ1dPhfYRzhb6iC8yZIsJ6X5IUD8IMy4bH2V1J8Ord1t44=
+    ContentPropagator: 001191440300708461136T1XGW3
+    PropagateID: 89238829fb97168b9c4195c03c152aef_a93f32dbd09111f1a443525400393706
+    ReservedCode2: nYMvb3mpsfup51QatdwQ+60p019HWq2Zy48SrV3RwSC/hvxbPBPGnW/XpylzlhbRTe/oICCl924FV2lZzgCD1lM8C6zotu29JPsRl/8zZqsHEb7GZYJnK5ZnTD2/pxDp8i+DgeF+kK2WJZZ1dPhfYRzhb6iC8yZIsJ6X5IUD8IMy4bH2V1J8Ord1t44=
+---
+
 # Obenseuer-BankInventory
 
 A BepInEx 5 mod for [Obenseuer](https://store.steampowered.com/app/1554640/Obenseuer/) that adds a **bank inventory**: press a key to open a storage UI where you can deposit and take items, with **infinite storage** (base capacity, auto-expanding, multi-page) and **full save support**.
 
 ## Features
 
-- Open/close the bank with a hotkey (default `B`).
+- Open/close the bank with a hotkey (default `O`).
 - Deposit items from your inventory by dragging them into the bank (or use the game's "take all" button to withdraw everything).
 - **Infinite storage**: starts with 30 slots; whenever the storage becomes full it automatically grows by one page. You can never lose items to the floor because there is always at least one free slot.
 - **Multiple pages**: the UI shows 88 slots per page; navigate with `[` / `]` (previous / next page).
@@ -20,7 +31,7 @@ A BepInEx 5 mod for [Obenseuer](https://store.steampowered.com/app/1554640/Obens
 
 1. Build the mod (see below) or grab the release DLL.
 2. Copy `Obenseuer-BankInventory.dll` into `BepInEx/plugins/` inside your Obenseuer folder.
-3. Launch the game. Press `B` to open/close the bank.
+3. Launch the game. Press `O` to open/close the bank.
 
 ## Configuration
 
@@ -28,7 +39,7 @@ The config file `BepInEx/config/com.juanberta.obenseuer.bankinventory.cfg` is ge
 
 | Section | Key | Default | Description |
 | --- | --- | --- | --- |
-| General | `OpenBankKey` | `B` | Key that opens/closes the bank inventory |
+| General | `OpenBankKey` | `O` | Key that opens/closes the bank inventory (default `O`; `B` is used by the game's Head Lamp Use) |
 | General | `NextPageKey` | `]` (RightBracket) | Key to go to the next bank page |
 | General | `PreviousPageKey` | `[` (LeftBracket) | Key to go to the previous bank page |
 | Storage | `BaseCapacity` | `30` | Initial number of slots. The bank expands automatically when it becomes full |
@@ -54,3 +65,4 @@ The project targets **net472 / x64 / LangVersion 7.3** (BepInEx 5 style) and ref
 ## License
 
 MIT
+*ï¼ˆå†…å®¹ç”±AIç”Ÿæˆï¼Œä»…ä¾›å‚è€ƒï¼‰*

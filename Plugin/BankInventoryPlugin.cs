@@ -19,8 +19,8 @@ namespace BankInventoryMod
 
 		private void Awake()
 		{
-			openKey = Config.Bind("General", "OpenBankKey", new KeyboardShortcut(KeyCode.B),
-				"Key that opens/closes the bank inventory.");
+			openKey = Config.Bind("General", "OpenBankKey", new KeyboardShortcut(KeyCode.O),
+				"Key that opens/closes the bank inventory. Default O because B is used by the game for Head Lamp Use.");
 			nextPageKey = Config.Bind("General", "NextPageKey", new KeyboardShortcut(KeyCode.RightBracket),
 				"Key to go to the next bank page.");
 			prevPageKey = Config.Bind("General", "PreviousPageKey", new KeyboardShortcut(KeyCode.LeftBracket),
