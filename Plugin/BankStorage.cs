@@ -1,4 +1,5 @@
 using System;
+using System.Reflection;
 using OS.Items;
 using UnityEngine;
 
@@ -68,6 +69,17 @@ namespace BankInventoryMod
 			// Give the base class a concrete (non-null) spawn settings so the coroutines the
 			// game starts from Storage.Start() don't crash on null spawnSettings.
 			spawnSettings = new SpawnSettings();
+
+			// Storage.Initialize() reads startItems.Length without a null check. On dynamically
+			// created objects (AddComponent) the [SerializeField] private ItemStack[] startItems
+			// stays null, which makes the coroutine throw a NullReferenceException right after
+			// the scene finishes loading (Storage+<Initialize>d__86.MoveNext()). Give it a
+			// concrete empty array via reflection (the field is private on the base class).
+			FieldInfo startItemsField = typeof(Storage).GetField("startItems", BindingFlags.NonPublic | BindingFlags.Instance);
+			if (startItemsField != null)
+			{
+				startItemsField.SetValue(this, new ItemStack[0]);
+			}
 		}
 
 		/// <summary>Save support: the bank object lives in the DontDestroyOnLoad scene, so the
