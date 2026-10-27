@@ -35,37 +35,37 @@
   <ItemGroup>
     <!-- BepInEx 5 core (backup kept for building the BepInEx 5 flavour) -->
     <Reference Include="BepInEx">
-      <HintPath>C:\Juegos\Obenseuer\BepInEx_5_backup\core\BepInEx.dll</HintPath>
+      <HintPath>C:\Users\Pc\AppData\Roaming\Tencent\Marvis\User\oAN1i2UV3FFeFuIVgUdOVLojbTdc\workspace\conv_1a01c8b3da9_4ff6d23a0887\temp\TreeCounter117\bin\Release\net472\BepInEx.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <Reference Include="0Harmony">
-      <HintPath>C:\Juegos\Obenseuer\BepInEx\core\0Harmony.dll</HintPath>
+      <HintPath>C:\Users\Pc\AppData\Roaming\Tencent\Marvis\User\oAN1i2UV3FFeFuIVgUdOVLojbTdc\workspace\conv_1a01c8b3da9_4ff6d23a0887\temp\TreeCounter117\bin\Release\net472\0Harmony.dll</HintPath>
       <Private>false</Private>
     </Reference>
-    <!-- Game assemblies -->
+    <!-- Game assemblies (same source as the BepInEx 6 flavour: the live Steam install) -->
     <Reference Include="Assembly-CSharp">
-      <HintPath>C:\Juegos\Obenseuer\Obenseuer_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Obenseuer\Obenseuer_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <!-- UnityEngine modules -->
     <Reference Include="UnityEngine">
-      <HintPath>C:\Juegos\Obenseuer\Obenseuer_Data\Managed\UnityEngine.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Obenseuer\Obenseuer_Data\Managed\UnityEngine.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>C:\Juegos\Obenseuer\Obenseuer_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Obenseuer\Obenseuer_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:\Juegos\Obenseuer\Obenseuer_Data\Managed\UnityEngine.UI.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Obenseuer\Obenseuer_Data\Managed\UnityEngine.UI.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <Reference Include="UnityEngine.UIModule">
-      <HintPath>C:\Juegos\Obenseuer\Obenseuer_Data\Managed\UnityEngine.UIModule.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Obenseuer\Obenseuer_Data\Managed\UnityEngine.UIModule.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <Reference Include="UnityEngine.InputLegacyModule">
-      <HintPath>C:\Juegos\Obenseuer\Obenseuer_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Obenseuer\Obenseuer_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
       <Private>false</Private>
     </Reference>
   </ItemGroup>

@@ -11,12 +11,15 @@ AIGC:
 
 # Obenseuer-BankInventory
 
-A BepInEx 6 mod for [Obenseuer](https://store.steampowered.com/app/1554640/Obenseuer/) that adds a **bank inventory**: press a key to open a storage UI where you can deposit and take items, with **infinite storage** (base capacity, auto-expanding, multi-page) and **full save support**.
+**Version 1.1.0** (BepInEx 5 edition)
+
+A BepInEx 5 mod for [Obenseuer](https://store.steampowered.com/app/1554640/Obenseuer/) that adds a **bank inventory**: press a key to open a storage UI where you can deposit and take items, with **infinite storage** (base capacity, auto-expanding, multi-page) and **full save support**.
 
 ## Features
 
 - Open/close the bank with a hotkey (default `O`).
 - Deposit items from your inventory by dragging them into the bank (or use the game's "take all" button to withdraw everything).
+- **Stack button**: moves matching items from your main inventory into the bank in two passes (top up existing stacks, then place the rest into free slots), inspired by LOMS' Inventory Tweaks. It only uses the player main inventory as the source and never touches the Backpack item (14930).
 - **Infinite storage**: starts with 30 slots; whenever the storage becomes full it automatically grows by one page. You can never lose items to the floor because there is always at least one free slot.
 - **Multiple pages**: the UI shows 88 slots per page; navigate with `Shift + [` / `Shift + ]` (previous / next page).
 - **Save support**: the bank is a global savable object (`Storage.global = true`), serialized into `Globals.tnmt` by the game's save system. It survives scene changes and save/load cycles.
@@ -24,7 +27,7 @@ A BepInEx 6 mod for [Obenseuer](https://store.steampowered.com/app/1554640/Obens
 
 ## Requirements
 
-- [BepInEx 6](https://github.com/BepInEx/BepInEx) (x64) installed in the game folder (tested with 6.0.0-pre.2)
+- [BepInEx 5](https://github.com/BepInEx/BepInEx) (x64) installed in the game folder
 - Obenseuer (Windows, x64, .NET Framework 4.7.2 / net472 runtime)
 
 ## Installation
@@ -53,7 +56,7 @@ The config file `BepInEx/config/com.juanberta.obenseuer.bankinventory.cfg` is ge
 
 Output: `bin\Release\Obenseuer-BankInventory.dll`
 
-The project targets **net472 / x64 / LangVersion 7.3** (BepInEx 6 style) and references the game assemblies from `C:\Juegos\Obenseuer\Obenseuer_Data\Managed\` and BepInEx core from `C:\Juegos\Obenseuer\BepInEx\core\` (BepInEx.Core.dll / BepInEx.Unity.Mono.dll). Adjust the HintPaths if your game is installed elsewhere.
+The project targets **net472 / x64 / LangVersion 7.3** (BepInEx 5 style) and references the game assemblies and BepInEx 5 core (`BepInEx.dll` / `0Harmony.dll`) from local backup copies (HintPaths in the `.csproj`). Adjust the HintPaths if your game is installed elsewhere.
 
 ## How it works (design notes)
 
@@ -61,6 +64,10 @@ The project targets **net472 / x64 / LangVersion 7.3** (BepInEx 6 style) and ref
 - **Infinite growth**: `Update()` checks `Storage.IsStorageFull()` while the bank is open. When the storage is full, `ExpandByPage()` appends one page of fresh slots and refreshes every controller's `Siblings` array so new stacks can spread into the new slots. Because the storage is never actually full during play, the game's "drop to floor" overflow path is never hit when dragging items in.
 - **Paging**: all slots get a slot UI created once when the bank opens; the current page's slots are `SetActive(true)` and the others are hidden. Hidden slots still keep their UI objects, which keeps vanilla code that iterates all slots (e.g. the "Take All" button) null-safe. Pages are switched with `[` / `]`, and the panel title shows `Page X/Y`.
 - **Saving**: the bank GameObject is `DontDestroyOnLoad` and registered into `SaveController.DontDestroyOnLoadObjects`. It overrides `OnSavingGameSpecial()` / `OnLoadingGameSpecial()` to serialize via `SaveController.SerializeData/DeSerializeData(this, global=true)`, so its contents live in the global save (`Globals.tnmt`) and survive scene changes and save/load cycles.
+
+## Credits
+
+- **LOMS' [obenseuer-inventory-tweaks](https://github.com/LOMS/obenseuer-inventory-tweaks)**: the Stack button implementation in this mod (source selection, two-pass stacking, liquid-aware item kind matching) was inspired by LOMS' Inventory Tweaks. Thanks for sharing the approach!
 
 ## License
 
