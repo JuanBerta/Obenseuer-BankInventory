@@ -11,7 +11,7 @@ AIGC:
 
 # Obenseuer-BankInventory
 
-**Version 1.1.0** (BepInEx 5 edition)
+**Version 1.1.2** (BepInEx 5 edition)
 
 A BepInEx 5 mod for [Obenseuer](https://store.steampowered.com/app/1554640/Obenseuer/) that adds a **bank inventory**: press a key to open a storage UI where you can deposit and take items, with **infinite storage** (base capacity, auto-expanding, multi-page) and **full save support**.
 
@@ -45,6 +45,7 @@ The config file `BepInEx/config/com.juanberta.obenseuer.bankinventory.cfg` is ge
 | General | `OpenBankKey` | `O` | Key that opens/closes the bank inventory (default `O`; `B` is used by the game's Head Lamp Use) |
 | General | `NextPageKey` | `Shift + ]` (RightBracket) | Key to go to the next bank page |
 | General | `PreviousPageKey` | `Shift + [` (LeftBracket) | Key to go to the previous bank page |
+| General | `StackButton` | `true` | Show the mod's STACK button next to Sort / Take All in the bank panel. Set to `false` if you use Inventory Tweaks and don't want a second STACK button |
 | Storage | `BaseCapacity` | `30` | Initial number of slots. The bank expands automatically when it becomes full |
 | Storage | `PageSize` | `88` | Slots shown per page (the game UI grid supports 88 slots) |
 
@@ -64,6 +65,7 @@ The project targets **net472 / x64 / LangVersion 7.3** (BepInEx 5 style) and ref
 - **Infinite growth**: `Update()` checks `Storage.IsStorageFull()` while the bank is open. When the storage is full, `ExpandByPage()` appends one page of fresh slots and refreshes every controller's `Siblings` array so new stacks can spread into the new slots. Because the storage is never actually full during play, the game's "drop to floor" overflow path is never hit when dragging items in.
 - **Paging**: all slots get a slot UI created once when the bank opens; the current page's slots are `SetActive(true)` and the others are hidden. Hidden slots still keep their UI objects, which keeps vanilla code that iterates all slots (e.g. the "Take All" button) null-safe. Pages are switched with `[` / `]`, and the panel title shows `Page X/Y`.
 - **Saving**: the bank GameObject is `DontDestroyOnLoad` and registered into `SaveController.DontDestroyOnLoadObjects`. It overrides `OnSavingGameSpecial()` / `OnLoadingGameSpecial()` to serialize via `SaveController.SerializeData/DeSerializeData(this, global=true)`, so its contents live in the global save (`Globals.tnmt`) and survive scene changes and save/load cycles.
+- **Cold load fix (v1.1.1+)**: the game's save/load hook loop only dispatches to active-in-hierarchy objects, so on Continue/Load from the main menu the (inactive) bank skipped `OnLoadingGameSpecial()` and started empty while its items stayed in the save. A Harmony prefix now activates the bank around the DontDestroyOnLoad hook pass; `BankStorage.Setup` marks the base `Storage` lifecycle done so activation never runs `Start()/Initialize()` prematurely.
 
 ## Credits
 
