@@ -11,7 +11,7 @@ AIGC:
 
 # Obenseuer-BankInventory
 
-**Version 1.2.1** (BepInEx 5 edition)
+**Version 1.2.2** (BepInEx 5 edition)
 
 A BepInEx 5 mod for [Obenseuer](https://store.steampowered.com/app/1554640/Obenseuer/) that adds a **bank inventory**: press a key to open a storage UI where you can deposit and take items, with **infinite storage** (base capacity, auto-expanding, multi-page) and **full save support**.
 
